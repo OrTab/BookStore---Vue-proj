@@ -35,9 +35,9 @@ export default {
       isActive: false,
     };
   },created(){
-    document.addEventListener('scroll',(ev)=>{
+    
    
-    })
+    
   }
 };
 </script>

@@ -25,7 +25,6 @@ $hamburger-active-hover-filter: $hamburger-hover-filter !default;
 $hamburger-types: (
  
   collapse,
-  collapse-r,
 ) !default;
 
 // Base Hamburger (We need this)
@@ -36,6 +35,6 @@ $hamburger-types: (
 // ==================================================
 
 @import "types/collapse";
-@import "types/collapse-r";
+
 
 
