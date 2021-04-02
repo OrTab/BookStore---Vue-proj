@@ -1,0 +1,28 @@
+.user-msg {
+    position: fixed;
+    bottom: 5%;
+    left: 5%;
+    // width: fit-content;
+    padding: 1em 5em;
+    font-weight: 500;
+    z-index: 9;
+
+    & a {
+        font-weight: 900;
+    }
+
+    & .close-btn{
+        position: absolute;
+        top: 0%;
+        right: 0%;
+        border: none;
+    }
+}
+
+.success {
+    background-color:#00ca72;
+}
+
+.error {
+    background-color: #fb275d;
+}

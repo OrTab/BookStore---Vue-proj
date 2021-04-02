@@ -1,0 +1,9 @@
+.book-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    // display: grid;
+    // grid-template-columns: repeat(auto-fill,250px);
+    // margin: auto;
+}

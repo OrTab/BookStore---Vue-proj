@@ -1,0 +1,47 @@
+.reviews {
+    .review-list{
+        
+        width: 100vw;
+        // display: grid;
+        // grid-template-columns: repeat(auto-fill,220px);
+        overflow-y: scroll;
+        border-top: 1px solid rgba(0, 0, 0, 0.329);
+        padding: 1em;
+        max-height: 250px;
+        @include scrollbars(8px, #afafaf);
+        margin-top: 2em;
+        
+        & .no-reviews{
+            font-size: 2em;
+        }
+        & .reviews-container{
+            display: flex;
+            flex-direction: column;
+            & .review{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                & button{
+                    position: absolute;
+                    top: 0%;
+                    right: 0%;
+                }
+                & *{
+                    margin-bottom: 0.8em;
+                }
+                
+                background: rgba(255, 255, 255, 0.25);
+                box-shadow: 0 8px 32px 0 rgba(172, 173, 189, 0.37);
+                backdrop-filter: blur(4px);
+                -webkit-backdrop-filter: blur(4px);
+                border-radius: 5px;
+                border: 1px solid rgba(255, 255, 255, 0.18);
+                padding: 20px;
+                background-color: white;
+                margin-bottom: 1em;
+                
+            }
+        }
+    }
+    }
+    

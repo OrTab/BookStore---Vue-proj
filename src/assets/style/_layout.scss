@@ -1,0 +1,29 @@
+body {
+    background-color: #ffff;
+
+    font-family: "Quicksand", sans-serif;
+    font-weight: 300;
+    & h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 500;
+    }
+}
+
+// .app-header {
+//     height: 10vh;
+//     padding: 0 20px;
+// }
+
+.app-main {
+    min-height: 85vh;
+    background-color: lightskyblue;
+    padding: 0 20px;
+}
+
+.app-footer {
+    height: 5vh;
+}
