@@ -1,10 +1,11 @@
 <template>
   <div class="description">
-      <div class="inner">
-  <span>
-       Description : 
-      </span> {{ text }}
-      </div>
+    <div class="inner">
+      <span>
+        Description :
+      </span>
+      {{ text }}
+    </div>
     <button v-show="isLongTxt" @click="showTxt">
       {{ isShow ? "Read Less" : "Read More" }}
     </button>
@@ -13,8 +14,8 @@
 
 <script>
 export default {
-  props:{
-    txt:String
+  props: {
+    txt: String,
   },
   data() {
     return {
@@ -32,8 +33,8 @@ export default {
 
   created() {
     this.isLongTxt = this.txt.length > 100;
-    this.text =this.txt.length > 100 ? this.txt.substring(0, 99) + "..." : this.txt;
+    this.text =
+      this.txt.length > 100 ? this.txt.substring(0, 99) + "..." : this.txt;
   },
 };
 </script>
-

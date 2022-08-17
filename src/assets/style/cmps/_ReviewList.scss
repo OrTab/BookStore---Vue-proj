@@ -1,16 +1,13 @@
 .reviews {
+    border-top: 1px solid rgba(0, 0, 0, 0.329);
+    margin-top: 2em;
+    padding: 1em;
     .review-list{
-        
-        width: 100vw;
         // display: grid;
-        // grid-template-columns: repeat(auto-fill,220px);
-        overflow-y: scroll;
-        border-top: 1px solid rgba(0, 0, 0, 0.329);
-        padding: 1em;
-        max-height: 250px;
+        // grid-template-columns: repeat(auto-fit,170px);
+        max-height: 170px;
+        overflow-y: auto;
         @include scrollbars(8px, #afafaf);
-        margin-top: 2em;
-        
         & .no-reviews{
             font-size: 2em;
         }

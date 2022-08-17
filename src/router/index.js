@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import About from '../views/About.vue'
 import BookApp from '../views/BookApp.vue'
 import BookDetails from '../views/BookDetails.vue'
 import BookAdd from '../views/BookAdd.vue'
@@ -15,20 +14,16 @@ const routes = [
     component: Home
   },
   {
-    path: '/about',
-    component:About
-  },
-  {
     path: '/book',
-    component:BookApp
+    component: BookApp
   },
   {
     path: '/book/:id',
-    component:BookDetails
+    component: BookDetails
   },
   {
     path: '/add',
-    component:BookAdd
+    component: BookAdd
   },
 ]
 

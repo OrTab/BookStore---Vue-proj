@@ -1,7 +1,7 @@
 <template>
   <div @click.self="$emit('closeReviewAdd')" class="back-review">
-    <div  ref="review-add" class="review-add">
-      <form  @submit.prevent="onAddReview">
+    <div ref="review-add" class="review-add">
+      <form @submit.prevent="onAddReview">
         <div class="name">
           <label>Name : </label>
           <input
@@ -25,6 +25,7 @@
           <input type="date" v-model="review.readAt" />
         </div>
         <textarea
+          required
           name=""
           id=""
           cols="30"
@@ -72,4 +73,3 @@ export default {
   },
 };
 </script>
-

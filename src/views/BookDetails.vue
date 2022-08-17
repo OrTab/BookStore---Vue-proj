@@ -1,63 +1,63 @@
 <template>
-<transition name="fade">
-  <div class="book-details" v-if="book">
-    <div class="details">
-      <div class="img-container">
-        <img :src="`${book.thumbnail}`" />
-      </div>
-      <div class="details-text">
-        <h2><span>Title : </span> {{ book.title }}</h2>
-        <h3><span> Sub : </span> {{ book.subtitle }}</h3>
-        <h5>
-          <div class="labels">
-            <small v-if="bookPageMark">{{ bookPageMark }} </small>
-
-            <small v-if="bookAgeMark">{{ bookAgeMark }}</small>
-          </div>
-          Written by :
-          <span v-for="auth in book.authors" :key="auth">{{ auth }}</span>
-        </h5>
-        <h5>
-          Categories :
-          <span v-for="(cat, idx) in book.categories" :key="cat">
-            {{
-              idx !== book.categories.length - 1 ? cat + "," : cat + "."
-            }}</span
-          >
-        </h5>
-        <h5>Page Count : {{ book.pageCount }} Pages</h5>
-        <h5>Published : {{ book.publishedDate }}</h5>
-        <h4>
-          Price :
-          <span :style="{ color: bookPriceMark }">{{ setCurrency }}</span>
-          {{ book.listPrice.onSale ? "On Sale!" : "" }}
-        </h4>
-        <long-txt v-if="book.description" :txt="book.description" />
-        <router-link to="/book">Go Back</router-link>
-        <div class="btns">
-          <router-link :to="`/book/${getBook('prev')}`"
-            ><button>Prev</button></router-link
-          >
-          <router-link :to="`/book/${getBook('next')}`"
-            ><button>next</button></router-link
-          >
+  <transition name="fade">
+    <div class="book-details" v-if="book">
+      <div class="details">
+        <div class="img-container">
+          <img :src="`${book.thumbnail}`" />
         </div>
+        <div class="details-text">
+          <h2><span>Title : </span> {{ book.title }}</h2>
+          <h3><span> Sub : </span> {{ book.subtitle }}</h3>
+          <h5>
+            <div class="labels">
+              <small v-if="bookPageMark">{{ bookPageMark }} </small>
+
+              <small v-if="bookAgeMark">{{ bookAgeMark }}</small>
+            </div>
+            Written by :
+            <span v-for="auth in book.authors" :key="auth">{{ auth }}</span>
+          </h5>
+          <h5>
+            Categories :
+            <span v-for="(cat, idx) in book.categories" :key="cat">
+              {{
+                idx !== book.categories.length - 1 ? cat + "," : cat + "."
+              }}</span
+            >
+          </h5>
+          <h5>Page Count : {{ book.pageCount }} Pages</h5>
+          <h5>Published : {{ book.publishedDate }}</h5>
+          <h4>
+            Price :
+            <span :style="{ color: bookPriceMark }">{{ setCurrency }}</span>
+            {{ book.listPrice.onSale ? "On Sale!" : "" }}
+          </h4>
+          <long-txt v-if="book.description" :txt="book.description" />
+          <router-link to="/book">Go Back</router-link>
+          <div class="btns">
+            <router-link :to="`/book/${getBook('prev')}`"
+              ><button>Prev</button></router-link
+            >
+            <router-link :to="`/book/${getBook('next')}`"
+              ><button>next</button></router-link
+            >
+          </div>
+        </div>
+      </div>
+      <div class="reviews">
+        <transition name="fade">
+          <review-add
+            v-if="showAddReviews"
+            @addReview="addReview"
+            @closeReviewAdd="showAddReviews = false"
+          />
+        </transition>
         <button @click="showAddReviews = !showAddReviews">Add Review</button>
+        <review-list @removeReview="removeReview" :reviews="book.reviews" />
       </div>
     </div>
-    <div class="reviews">
-      <transition name="fade">
-        <review-add
-          v-if="showAddReviews"
-          @addReview="addReview"
-          @closeReviewAdd="showAddReviews = false"
-        />
-      </transition>
-      <review-list @removeReview="removeReview" :reviews="book.reviews" />
-    </div>
-  </div>
 
-  <img class="loader" v-else src="../assets/img/loader.gif" alt="" />
+    <img class="loader" v-else src="../assets/img/loader.gif" alt="" />
   </transition>
 </template>
 
@@ -87,7 +87,7 @@ export default {
         bookId: this.book.id,
       });
       this.showAddReviews = false;
-      this.loadBookNoTimeOut()
+      this.loadBookNoTimeOut();
     },
     async removeReview(review) {
       await this.$store.dispatch({
@@ -95,11 +95,10 @@ export default {
         reviewId: review.id,
         bookId: this.book.id,
       });
-      this.loadBookNoTimeOut()
+      this.loadBookNoTimeOut();
     },
-   async loadBookNoTimeOut(){
+    async loadBookNoTimeOut() {
       this.book = await bookService.getBookById(this.book.id);
-
     },
     loadBook() {
       const { id } = this.$route.params;
@@ -163,4 +162,3 @@ export default {
   },
 };
 </script>
-
