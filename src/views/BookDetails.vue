@@ -36,10 +36,10 @@
           <router-link to="/book">Go Back</router-link>
           <div class="btns">
             <router-link :to="`/book/${getBook('prev')}`"
-              ><button>Prev</button></router-link
+              ><button>Previous</button></router-link
             >
             <router-link :to="`/book/${getBook('next')}`"
-              ><button>next</button></router-link
+              ><button>Next</button></router-link
             >
           </div>
         </div>

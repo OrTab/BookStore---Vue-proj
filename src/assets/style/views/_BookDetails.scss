@@ -4,11 +4,11 @@
     & .details {
         padding-top: 30px;
         display: flex;
+        flex-direction: column;
         justify-content: center;
+        align-items: center;
         & .details-text {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            width: 100%;
             & * {
                 margin-bottom: 1.5em;
             }
@@ -71,10 +71,6 @@
     .book-details {
         & .details {
             font-size: 14px;
-            height: 80vh;
-            // flex-direction: column;
-            flex-wrap: wrap;
-            flex-grow: 1;
             .img-container {
                 width: 50%;
             }
